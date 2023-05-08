@@ -1,3 +1,3 @@
-# Kubernetes
+# Kubernetes installation
 
 Minikube
