@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ $(id -u) -eq 0 ]
+if [ $(id -u) -ne 0 ]
 then
-   echo "This script should be executed as regular user"
+   echo "This script should be executed as root"
    exit 0
 fi
 
 # Installing pip 
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py 
-python3 get-pip.py --user 
-# Installing Ansible 
-python3 -m pip install --user ansible 
+apt -y install python3-pip
+
+# Installing Ansible
+python3 -m pip install ansible
