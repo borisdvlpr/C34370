@@ -16,3 +16,28 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+# crictl
+VERSION="v1.29.0" # check latest version in /releases page at https://github.com/kubernetes-sigs/cri-tools/releases
+wget https://github.com/kubernetes-sigs/cri-tools/releases/download/$VERSION/crictl-$VERSION-linux-amd64.tar.gz
+sudo tar zxvf crictl-$VERSION-linux-amd64.tar.gz -C /usr/local/bin
+rm -f crictl-$VERSION-linux-amd64.tar.gz
+
+# cri-dockerd
+# Check latest at https://github.com/Mirantis/cri-dockerd/releases
+wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.9/cri-dockerd_0.3.9.3-0.ubuntu-jammy_amd64.deb
+dpkg -i cri-dockerd_0.3.9.3-0.ubuntu-jammy_amd64.deb
+
+# container-networking
+# Check latest at https://github.com/containernetworking/plugins/releases
+CNI_PLUGIN_VERSION="v1.4.0"
+CNI_PLUGIN_TAR="cni-plugins-linux-amd64-$CNI_PLUGIN_VERSION.tgz" # change arch if not on amd64
+CNI_PLUGIN_INSTALL_DIR="/opt/cni/bin"
+
+curl -LO "https://github.com/containernetworking/plugins/releases/download/$CNI_PLUGIN_VERSION/$CNI_PLUGIN_TAR"
+sudo mkdir -p "$CNI_PLUGIN_INSTALL_DIR"
+sudo tar -xf "$CNI_PLUGIN_TAR" -C "$CNI_PLUGIN_INSTALL_DIR"
+rm "$CNI_PLUGIN_TAR"
+
+# Misc
+sysctl fs.protected_regular=0
