@@ -7,7 +7,7 @@ then
 fi
 
 # Installing pip 
-apt -y install python3-pip
+apt-get -y install python3-pip
 
 # Installing Ansible
 python3 -m pip install ansible
