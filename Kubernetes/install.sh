@@ -1,11 +1,7 @@
 #!/bin/bash
 
 # Check for root
-if [ $(id -u) -ne 0 ]
-then
-   echo "This script should be executed as root"
-   exit 0
-fi
+[ $(id -u) -ne 0 ] && echo "Script must be executed with sudo" && exit
 
 # Minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
