@@ -1,11 +1,7 @@
 #!/bin/sh
 
 # Check for root
-if [ $(id -u) -ne 0 ]
-then
-   echo "This script should be executed as root"
-   exit 0
-fi
+[ $(id -u) -ne 0 ] && echo "Script must be executed with sudo" && exit
 
 apt-get update
 apt-get -y install at zenity
