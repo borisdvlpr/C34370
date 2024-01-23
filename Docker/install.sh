@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Check for root
+if [ $(id -u) -ne 0 ]
+then
+   echo "This script should be executed as root"
+   exit 0
+fi
+
 apt update
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt remove $pkg; done
 apt install -y ca-certificates curl gnupg

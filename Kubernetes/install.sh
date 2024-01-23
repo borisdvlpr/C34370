@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Check for root
+if [ $(id -u) -ne 0 ]
+then
+   echo "This script should be executed as root"
+   exit 0
+fi
+
 # Minikube
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
 dpkg -i minikube_latest_amd64.deb
