@@ -18,4 +18,7 @@ done
 usermod -aG vboxsf user
 
 # Miscellaneous other packages
-sudo apt-get install wireshark conntrack conntrackd xterm
+apt-get install wireshark conntrack conntrackd xterm
+
+# Add user to sudoers file
+grep -q -e "^user" /etc/sudoers || echo -e "user\tALL = NOPASSWD: ALL" >> /etc/sudoers 
