@@ -16,3 +16,6 @@ done
 
 # Add user to vboxsf group for shared folder
 usermod -aG vboxsf user
+
+# Miscellaneous other packages
+sudo apt-get install wireshark conntrack conntrackd xterm
