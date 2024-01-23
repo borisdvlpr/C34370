@@ -7,4 +7,4 @@ then
    exit 0
 fi
 
-apt -y install openvswitch-common openvswitch-switch openvswitch-switch-dpdk openvswitch-doc python3-openvswitch
+apt-get -y install openvswitch-common openvswitch-switch openvswitch-switch-dpdk openvswitch-doc python3-openvswitch
