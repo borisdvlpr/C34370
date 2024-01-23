@@ -10,5 +10,4 @@ fi
 apt-get update
 apt-get -y install at zenity
 curl -Lo - https://github.com/skydive-project/skydive-binaries/raw/jenkins-builds/skydive-latest.gz | gzip -d > skydive && chmod +x skydive && sudo mv skydive /usr/local/bin/
-cp skydivectl /usr/local/bin
-chmod +x /usr/local/bin/skydivectl
+install -m 0755 skydivectl /usr/local/bin/skydivectl
