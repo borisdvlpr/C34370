@@ -8,7 +8,7 @@ then
 fi
 
 # Stop/disable some irrelevant services
-for p in avahi-daemon.service avahi-daemon.socket
+for p in avahi-daemon.service avahi-daemon.socket casper.service casper-md5check.service cups.service cups-browsed.service wpa_supplicant.service ModemManager.service ufw.service
 do
    systemctl stop ${p}
    systemctl mask ${p}
