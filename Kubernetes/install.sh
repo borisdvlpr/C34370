@@ -39,3 +39,5 @@ rm "$CNI_PLUGIN_TAR"
 
 # Misc
 sysctl fs.protected_regular=0
+
+echo "Please run 'sudo minikube start --driver=none' at least once before distributing the VM"
