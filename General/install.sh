@@ -22,11 +22,8 @@ then
    fi
 fi
 
-# Add user to vboxsf group for shared folder
-usermod -aG vboxsf user
-
 # Miscellaneous other packages
-apt-get -y install wireshark conntrack conntrackd xterm
+apt-get -y install wireshark conntrack conntrackd xterm curl
 
 # Add user to sudoers file
 # grep -q -e "^user" /etc/sudoers || /usr/bin/echo -e "user\tALL = NOPASSWD: ALL" >> /etc/sudoers 
