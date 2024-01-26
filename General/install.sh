@@ -23,7 +23,7 @@ then
 fi
 
 # Miscellaneous other packages
-apt-get -y install wireshark conntrack conntrackd xterm curl
+apt-get -y install build-essential wireshark conntrack conntrackd xterm curl
 
 # Add user to sudoers file
 # grep -q -e "^user" /etc/sudoers || /usr/bin/echo -e "user\tALL = NOPASSWD: ALL" >> /etc/sudoers 
