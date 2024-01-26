@@ -30,3 +30,8 @@ apt-get -y install wireshark conntrack conntrackd xterm curl
 
 # Cleanup apt-get
 apt-get clean
+
+# Fix Grub
+sed -i 's/GRUB_TIMEOUT_STYLE=.*/GRUB_TIMEOUT_STYLE=menu/g' /etc/default/grub
+sed -i 's/GRUB_TIMEOUT=.*/GRUB_TIMEOUT=2/g' /etc/default/grub
+update-grub
