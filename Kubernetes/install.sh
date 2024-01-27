@@ -38,6 +38,13 @@ sudo tar -xf "$CNI_PLUGIN_TAR" -C "$CNI_PLUGIN_INSTALL_DIR"
 rm "$CNI_PLUGIN_TAR"
 
 # Misc
-sysctl fs.protected_regular=0
+SYSCTLCNF="/etc/sysctl.conf"
+grep -q -e "fs.protected_regular=" $SYSCTLCNF
+if [ $? -eq 0 ]
+then
+   sed -i 's/fs.protected_regular=.*/fs.protected_regular=0/g' $SYSCTLCNF
+else
+   echo "fs.protected_regular=0" >> $SYSCTLCNF
+fi
 
 echo "Please run 'sudo minikube start --driver=none' at least once before distributing the VM"
