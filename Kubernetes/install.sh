@@ -46,5 +46,6 @@ then
 else
    echo "fs.protected_regular=0" >> $SYSCTLCNF
 fi
+sysctl -p
 
 echo "Please run 'sudo minikube start --driver=none' at least once before distributing the VM"
