@@ -1,3 +1,0 @@
-# Docker
-
-Docker install script
