@@ -10,6 +10,6 @@ git clone https://github.com/mininet/mininet
 mininet/util/install.sh
 
 # Additionals
-apt-get update
-apt-get -y install python3-rangehttpserver
-apt-get clean
+# apt-get update
+# apt-get -y install python3-rangehttpserver
+# apt-get clean
