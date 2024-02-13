@@ -24,7 +24,15 @@ rm -f crictl-$VERSION-linux-arm64.tar.gz
 # cri-dockerd
 # Check latest at https://github.com/Mirantis/cri-dockerd/releases
 wget https://github.com/Mirantis/cri-dockerd/releases/download/v0.3.9/cri-dockerd-0.3.9.arm64.tgz
-sudo tar zxvf cri-dockerd-0.3.9.arm64.tgz -C /usr/local/bin
+sudo tar zxvf cri-dockerd-0.3.9.arm64.tgz
+mv cri-dockerd/cri-dockerd /usr/local/bin/
+wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.service
+wget https://raw.githubusercontent.com/Mirantis/cri-dockerd/master/packaging/systemd/cri-docker.socket
+sudo mv cri-docker.socket cri-docker.service /etc/systemd/system/
+sudo sed -i -e 's,/usr/bin/cri-dockerd,/usr/local/bin/cri-dockerd,' /etc/systemd/system/cri-docker.service
+sudo systemctl daemon-reload
+sudo systemctl enable cri-docker.service
+sudo systemctl enable --now cri-docker.socket
 rm -f cri-dockerd-0.3.9.arm64.tgz
 
 # container-networking
