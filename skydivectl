@@ -18,11 +18,11 @@ check_skydive_status() {
 
 start_skydive() {
   echo "Skydive is starting. Open http://localhost:8082 in the browser."
-  SKYDIVE_ETCD_DATA_DIR=/tmp SKYDIVE_ANALYZER_LISTEN=0.0.0.0:8082 sudo -E ${CMD} 1>/dev/null 2>&1 | at -M now 1>/dev/null 2>&1
+  echo "SKYDIVE_ETCD_DATA_DIR=/tmp SKYDIVE_ANALYZER_LISTEN=0.0.0.0:8082 ${CMD} &>/dev/null" | sudo at now &>/dev/null
 }
 
 stop_skydive() {
-  sudo -E pkill skydive
+  sudo pkill skydive
 }
 
 check_skydive_status
