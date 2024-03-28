@@ -4,16 +4,14 @@
 [ $(id -u) -ne 0 ] && echo "Script must be executed with sudo" && exit
 
 # Stop/disable some irrelevant services
-for p in avahi-daemon.service avahi-daemon.socket cups.service cups-browsed.service wpa_supplicant.service ModemManager.service ufw.service
+for p in avahi-daemon.service avahi-daemon.socket cups.service cups-browsed.service wpa_supplicant.service ModemManager.service ufw.service unattended-upgrades.service
 do
    systemctl stop ${p}
    systemctl mask ${p}
 done
-if [ -f /etc/os-release ] 
-then
+if [ -f /etc/os-release ] ; then
    . /etc/os-release
-   if [ "${NAME}" = "Linux Mint" ]
-   then
+   if [ "${NAME}" = "Linux Mint" ] ; then
       # Following services only on Linux Mint
       systemctl stop casper.service
       systemctl mask casper.service
