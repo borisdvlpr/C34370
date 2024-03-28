@@ -4,7 +4,7 @@
 [ $(id -u) -ne 0 ] && echo "Script must be executed with sudo" && exit
 
 # Stop/disable some irrelevant services
-for p in avahi-daemon.service avahi-daemon.socket cups.service cups-browsed.service wpa_supplicant.service ModemManager.service ufw.service unattended-upgrades.service
+for p in avahi-daemon.service avahi-daemon.socket cups.service cups-browsed.service wpa_supplicant.service ModemManager.service ufw.service unattended-upgrades.service apt-daily-upgrade.service apt-daily-upgrade.timer apt-daily.timer
 do
    systemctl stop ${p}
    systemctl mask ${p}
