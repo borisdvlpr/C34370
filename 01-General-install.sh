@@ -14,9 +14,6 @@ fi
 # Miscellaneous other packages
 apt-get -y install build-essential wireshark conntrack conntrackd xterm curl net-tools ssh gcc-12 bridge-utils
 
-# Add user to sudoers file
-# grep -q -e "^user" /etc/sudoers || /usr/bin/echo -e "user\tALL = NOPASSWD: ALL" >> /etc/sudoers 
-
 # Cleanup apt-get
 apt-get clean
 
