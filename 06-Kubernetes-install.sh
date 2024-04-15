@@ -8,7 +8,7 @@ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube_latest
 dpkg -i minikube_latest_amd64.deb
 rm -f minikube_latest_amd64.deb
 
-# Kubectl
+# Kubectl (MAY NOT BE NEEDED FOR MINIKUBE IF "alias kubectl='sudo minikube kubectl --'" IS USED - MUST BE CHECKED!)
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
