@@ -12,7 +12,7 @@ if [ -s Files/disablelist ] ; then
 fi
 
 # Miscellaneous other packages
-apt-get -y install build-essential wireshark conntrack conntrackd xterm curl net-tools ssh gcc-12 bridge-utils jq
+apt-get -y install build-essential wireshark conntrack conntrackd xterm curl net-tools ssh gcc-12 bridge-utils jq nmap
 
 # Cleanup apt-get
 apt-get clean
