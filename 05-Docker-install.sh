@@ -24,7 +24,7 @@ apt-get update
 apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 # Test
-# sudo docker run hello-world
+# sudo docker run --rm hello-world
 
 # Cleanup apt-get
 apt-get clean
